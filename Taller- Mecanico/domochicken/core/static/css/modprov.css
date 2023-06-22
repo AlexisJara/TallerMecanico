@@ -1,0 +1,31 @@
+body {
+    color: #404040;
+    font-family: "Arial", Segoe UI, Tahoma, sans-serifl, Helvetica Neue, Helvetica;
+    background-image: url(/../../static/img/textura.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.titulo {
+    font-size: 40px;
+    color: white;
+    margin-bottom: 25px;
+    margin-top: 50px;
+    text-align: center;
+
+}
+.table{
+    overflow-x: scroll;
+}
+
+.btn{
+    width: 120px;
+}
+
+@media screen and (max-width: 1200px) {
+    .btn {
+        margin-top: 10px;
+    }
+}
+

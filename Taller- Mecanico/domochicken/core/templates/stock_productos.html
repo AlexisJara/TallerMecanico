@@ -1,0 +1,45 @@
+{% extends "base/base_admin.html" %}
+{% block css %}
+<link rel="stylesheet" href="../static/css/stock_productos.css">
+{% endblock %}
+{% block title %}Domo Chicken - Stock de productos{% endblock %}
+{% block template %}
+
+<h1 class="text-white text-center" style="margin-bottom: 10px;">Stock Productos</h1>
+
+<section>
+    <div class="container">
+        <h1></h1>
+        <div class="row">
+            {% for x in producto %}
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-sm-6 col-6 d-flex align-items-center justify-content-center">
+                <div class="card " style="max-width: 250px;">
+                    {% if x.imagenProd %}
+                        <img src="{{x.imagenProd.url}}" alt="Error :D" id="img2" class="img">
+                    {% else %}
+                        <img src="../media/Not_found.png" alt="Error :D" id="img2" class="img">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{x.nombre_producto}} </h5>
+
+                        <p class="card-text"><small class="fw-bold"> Stock: {{x.stock}}</small></p>
+
+                    </div>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'solicitar_stock' x.id_producto%}" class="btn btn-primary my-btn">Realizar
+                        pedido</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<div class="curved-div">
+    <svg viewBox="0 0 1440 319">
+        <path fill="#fff" fill-opacity="1"
+            d="M0,32L48,80C96,128,192,224,288,224C384,224,480,128,576,90.7C672,53,768,75,864,96C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
+    </svg>
+</div>
+{% endblock %}

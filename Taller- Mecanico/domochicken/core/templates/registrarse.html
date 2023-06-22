@@ -1,0 +1,50 @@
+{% extends "base/base.html" %}
+{% block css %}
+<link rel="stylesheet" href="/../static/css/registrarse.css">
+{% endblock %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Domo Chicken - Registrarse{% endblock %}
+{% block template %}
+{%load static%}
+
+<body>
+
+  <section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+      background-image: url('../static/img/gif_pollos.gif');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 0%;
+      height: 300px;
+      "></div>
+    <!-- Background image -->
+
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+      margin-top: -100px;
+      background: hsla(0, 0%, 100%, 0.8);
+      backdrop-filter: blur(30px);
+      ">
+      <div class="card-body py-5 px-md-5">
+
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-5">Registrarse</h2>
+            <form class="form-signup" method="post">
+              {% csrf_token %}
+              {{form|crispy}}
+              <button title="Sign In" type="submit" class="btn btn-primary">
+                <span>Registrarse</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% block js %}
+  <script src="/../static/js/registro.js"></script>
+  {% endblock %}
+
+  {% endblock %}

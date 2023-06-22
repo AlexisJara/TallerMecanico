@@ -1,0 +1,75 @@
+{% extends "base/base.html" %}
+{% block css %}
+<link rel="stylesheet" href="/../static/css/login.css">
+{% endblock %}
+{% block title %}Domo Chicken - Iniciar sesión{% endblock %}
+{% block template %}
+<!-- Section: Design Block -->
+<section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+      background-image: url('../static/img/gif_pollos.gif');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 0%;
+      height: 300px;
+      "></div>
+    <!-- Background image -->
+
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+      margin-top: -100px;
+      background: hsla(0, 0%, 100%, 0.8);
+      backdrop-filter: blur(30px);
+      ">
+        <div class="card-body py-5 px-md-5">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-4">
+                    <h2 class="fw-bold mb-5">Iniciar sesión</h2>
+
+                    <form class="form-login needs-validation" action="{% url 'iniciar_sesion' %}" method="post"
+                        novalidate>
+                        {% csrf_token %}
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" name="correo" id="form3Example3" class="form-control"
+                                placeholder="Correo electrónico" required />
+                            <div class="invalid-feedback">
+                                Ingrese un correo electrónico.
+                            </div>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" name="clave" id="form3Example4" class="form-control"
+                                placeholder="Contraseña" required />
+                            <div class="invalid-feedback">
+                                Ingrese una contraseña.
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">
+                            Iniciar sesión
+                        </button>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </form>
+                    <div>
+                        <p class="mb-0">No tienes cuenta? <a href="{% url 'registrar_usuario' %}"
+                                class="fw-bold">Regístrate acá</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

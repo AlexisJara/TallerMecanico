@@ -1,0 +1,74 @@
+{% extends "base/base_admin.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="../static/css/style.css">
+<link rel="stylesheet" href="../static/css/styleadmin.css">
+{% endblock %}
+{% block title %}Domo Chicken - Panel de administración{% endblock %}
+{% block template %}
+<div class="container-fluid">
+    <h1 class="text-white text-center" style="margin-bottom: 10px;">¡Bienvenido administrador!</h1>
+    <div class="row">
+        <div class="col-md-6 col-sm-12 columnas">
+            <div class="card color-borde-1 shadow h-100 py-2">
+                <div class="titulo-card fw-bold"><i class="fa-solid fa-coins"></i> GANANCIAS MENSUALES</div>
+                <div class="desc">$3.450.000,00</div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 columnas">
+            <div class="card color-borde-2 shadow h-100 py-2">
+                <div class="titulo-card fw-bold"><i class="fa-solid fa-calendar"></i> VENTAS REALIZADAS</div>
+                <div class="desc">200 ventas realizadas este mes.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="titulo">Acceso rápido</h2>
+    <div class="row">
+        <div class="col-12 columnas">
+            <div class="card h-100 py-2">
+                <a href="{% url 'productos' %}" style="text-decoration: none; color: #000;">
+                    <p class="fw-bold align-items-start titulo-card"><i class="bi bi-box2 "></i>Productos
+                    </p>
+                    <p class="desc">Opciones de productos</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 columnas">
+            <div class="card h-100 py-2">
+                <a href="{% url 'proveedores' %}" style="text-decoration: none; color: #000;">
+                    <p class="fw-bold align-items-start titulo-card"><i class="bi bi-truck"></i> Proveedores </p>
+                    <p class="desc">Lista de proveedores, solciitudes, agregar, modificar o desactivar un proveedor
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="col-6 columnas">
+            <div class="card h-100 py-2">
+                <a href="{% url 'usuarios' %}" style="text-decoration: none; color: #000;">
+
+                    <p class="fw-bold align-items-start titulo-card"><i class="bi bi-truck"></i> Usuarios </p>
+                    <p class="desc">Lista de usuarios, agregar, modificar o desactivar un usuario
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="curved-div">
+    <svg viewBox="0 0 1440 319">
+        <path fill="#fff" fill-opacity="1"
+            d="M0,32L48,80C96,128,192,224,288,224C384,224,480,128,576,90.7C672,53,768,75,864,96C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
+    </svg>
+</div>
+{% block js %}
+<link rel="stylesheet" href="../static/js/sidebar.js">
+{% endblock %}
+
+{% endblock %}

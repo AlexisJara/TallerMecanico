@@ -1,0 +1,29 @@
+{% extends "base/base_admin.html" %}
+{% block css %}
+<!--ACA VA EL CSS-->
+<link rel="stylesheet" href="../static/css/solicitud_prov.css">
+{% endblock %}
+{% block title %}Domo Chicken - Solicitud {% endblock %}
+{% block template %}
+<div class="container" style="overflow-x: auto;">
+    <h1 class="text-white text-center" style="margin-bottom: 10px;">Solicitudes Pendientes</h1>
+    <div class="row ">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Proveedor</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody hx-get="{% url 'lista_solicitudes' %}" hx-trigger="load, act from:body">
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}
