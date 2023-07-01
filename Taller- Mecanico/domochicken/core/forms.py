@@ -1,6 +1,8 @@
 from django import forms
-from .models import Producto, Proveedor,Comuna,Usuario,Rol
+from .models import HorasDiponibles, Producto, Proveedor,Comuna,Usuario,Rol
 from django.forms import ValidationError
+from datetime import date,time
+
 #VALIDACIONES
 class val_largo_numero:
     def __init__(self,largo=9):
@@ -14,22 +16,19 @@ class val_largo_numero:
         return value
 
 class producto_form(forms.ModelForm):
-    stock= forms.IntegerField(min_value=1)
-    precio=forms.IntegerField(min_value=100)
-    imagenProd= forms.ImageField()
+    fecha = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'min': date.today().strftime("%Y-%m-%d")}))
+    hora = forms.TimeField(widget=forms.TimeInput(attrs={'type': 'time', 'min': time(8, 0).strftime("%H:%M"), 'max': time(19, 0).strftime("%H:%M")}))
+
     class Meta:
-        model= Producto
-        fields=['nombre_producto','stock','precio','imagenProd','descripcion','fk_id_proveedor']
-        labels={
-            'nombre_producto': 'Nombre del producto',
-            'imagenProd': 'Imagen',
-            'descripcion': 'Descripción',
-            'fk_id_proveedor': 'Proveedor'
+        model = HorasDiponibles
+        fields = ['fecha', 'hora', 'fk_id_servicio']
+        labels = {
+            'fecha': 'Fecha',
+            'hora': 'Hora',
+            'fk_id_servicio': 'Tipo de servicio',
         }
-        widgets={
-            'descripcion': forms.Textarea(attrs={
-                "rows":5
-            }),
+        widgets = {
+            'descripcion': forms.Textarea(attrs={'rows': 5}),
         }
 
 class proveedor_form(forms.ModelForm):

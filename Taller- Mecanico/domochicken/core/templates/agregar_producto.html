@@ -7,7 +7,7 @@
 {% load crispy_forms_tags %}
 {% block title %}Domo Chicken - La mejor calidad{% endblock %}
 {% block template %}
-<h1 class="text-white text-center pt-3" style="margin-bottom: 20px;">Agregar Producto</h1>
+<h1 class="text-white text-center pt-3" style="margin-bottom: 20px;">Agregar Hora para agendar</h1>
 <form method="post" class="form" name="form_agregar_producto" enctype="multipart/form-data" style="max-width: 768px;">
     {% csrf_token %}
     {{form|crispy}}

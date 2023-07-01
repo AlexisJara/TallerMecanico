@@ -16,6 +16,7 @@ import requests
 import json
 import random
 import string
+
 #ERRORES
 def pagina_no_encontrada(request, exception):
     return render(request, 'handlers/404.html', status=404)
@@ -65,7 +66,7 @@ def index_admin(request):
 def agregar_producto_nuevo(request):
     if request.method == "POST":
         form_agregar_producto = producto_form(
-            request.POST, request.FILES)
+            request.POST)
         if form_agregar_producto.is_valid():
             form_agregar_producto.save()
             return redirect('productos')
@@ -540,10 +541,11 @@ def pv_eliminar_proveedor(request, id_proveedor):
 
     return render(request, 'modales/pv_eliminar_prove.html', {'proveedor': provee})
 
+
 @login_required(login_url="/")
 @role_required('1','4')
 def p_lista_productos(request):
-    producto = Producto.objects.filter(row_status=1)
+    producto = HorasDiponibles.objects.filter(row_status=1)
 
     return render(request, 'modales/lista_productos.html', {'producto': producto})
 
