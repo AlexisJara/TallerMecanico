@@ -114,11 +114,11 @@ def solicitar_stock(request, id_prod):
 
 @login_required(login_url="/")
 @role_required('1')
-def modificar_producto(request, idProd):
-    producto_filter = Producto.objects.get(id_producto=idProd)
+def modificar_producto(request, id_Hora):
+    producto_filter = HorasDiponibles.objects.get(id_Hora=id_Hora)
     if request.method == "POST":
         form_agregar_producto = producto_form(
-            request.POST, request.FILES, instance=producto_filter)
+            request.POST,instance=producto_filter)
         if form_agregar_producto.is_valid():
             form_agregar_producto.save()
             return redirect('productos')
@@ -563,10 +563,11 @@ def p_desactivar_producto(request, id_producto):
 
     return render(request, 'modales/p_desactivar_producto.html', {'producto': producto})
 
+
 @login_required(login_url="/")
 @role_required('1')
-def p_eliminar_producto(request, id_producto):
-    producto = Producto.objects.filter(id_producto=id_producto).first()
+def p_eliminar_producto(request,id_Hora):
+    producto = HorasDiponibles.objects.filter(id_Hora=id_Hora).first()
 
     return render(request, 'modales/p_eliminar_producto.html', {'producto': producto})
 
@@ -693,8 +694,8 @@ def desactivar_producto(request, id_producto):
 
 @login_required(login_url="/")
 @role_required('1')
-def eliminar_producto(request, id_producto):
-    producto = Producto.objects.filter(id_producto=id_producto).first()
+def eliminar_producto(request, id_Hora):
+    producto = HorasDiponibles.objects.filter(id_Hora=id_Hora).first()
     producto.row_status = False
     producto.save()
     return HttpResponse(status=204, headers={'HX-Trigger': 'actualizar'})

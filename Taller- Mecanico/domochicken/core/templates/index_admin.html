@@ -11,16 +11,11 @@
         <h2 class="text-light text-start pt-3 pb-1" >Bienvenido administrador</h2></div>
         <div class="rounded" style="border-top : #ffc107 4px solid; width: 180px ;"></div>
     <div class="row justify-content-center">
-        <div class="col-md-5 col-sm-12 columnas">
-            <div class="card color-borde-1 shadow h-100 py-2">
-                <div class="titulo-card fw-bold"><i class="bi bi-cash-coin me-1"></i> GANANCIAS MENSUALES</div>
-                <div class="desc">$3.450.000,00</div>
-            </div>
         </div>
-        <div class="col-md-5 col-sm-12 columnas">
+        <div class="col-md-12 col-sm-12 columnas">
             <div class="card color-borde-2 shadow h-100 py-2">
-                <div class="titulo-card fw-bold"><i class="bi bi-calendar2-check me-1"></i> VENTAS REALIZADAS</div>
-                <div class="desc">200 ventas realizadas este mes.</div>
+                <div class="titulo-card fw-bold"><i class="bi bi-calendar2-check me-1"></i> ATENCIONES REALIZADAS</div>
+                <div class="desc">200 atenciones realizadas este mes.</div>
             </div>
         </div>
     </div>
@@ -32,35 +27,15 @@
         <div class="col-12 columnas">
             <div class="card h-100 py-2">
                 <a href="{% url 'productos' %}" style="text-decoration: none; color: #000;">
-                    <p class="fw-bold align-items-start titulo-card"><i class="bi bi-box2 me-1"></i>Productos
+                    <p class="fw-bold align-items-start titulo-card"><i class="bi bi-clock"></i>Horas
                     </p>
-                    <p class="desc">Opciones de productos</p>
+                    <p class="desc">Opciones de Horas</p>
                 </a>
             </div>
         </div>
     </div>
 
-    <div class="row mb-5">
-        <div class="col-6 columnas">
-            <div class="card h-100 py-2">
-                <a href="{% url 'proveedores' %}" style="text-decoration: none; color: #000;">
-                    <p class="fw-bold align-items-start titulo-card"><i class="bi bi-truck me-1"></i> Proveedores </p>
-                    <p class="desc">Lista de proveedores, solciitudes, agregar, modificar o desactivar un proveedor
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="col-6 columnas">
-            <div class="card h-100 py-2">
-                <a href="{% url 'usuarios' %}" style="text-decoration: none; color: #000;">
 
-                    <p class="fw-bold align-items-start titulo-card"><i class="bi bi-people me-1"></i> Usuarios </p>
-                    <p class="desc">Lista de usuarios, agregar, modificar o desactivar un usuario
-                    </p>
-                </a>
-            </div>
-        </div>
-    </div>
 </div>
 {% block js %}
 <link rel="stylesheet" href="../static/js/sidebar.js">

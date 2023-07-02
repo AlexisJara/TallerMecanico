@@ -35,7 +35,7 @@ urlpatterns = [
     path('modificar_proveedor/<id_prov>',modificar_proveedor,name="modificar_proveedor"),
 
     #Modificar un producto
-    path('modificar_producto/<idProd>',modificar_producto,name="modificar_producto"),
+    path('modificar_producto/<id_Hora>',modificar_producto,name="modificar_producto"),
     #Funciones ver usuarios admin
     path('usuarios/',usuarios,name="usuarios"),
     path('agregar_usuario/',agregar_usuario,name="agregar_usuario"),
@@ -90,14 +90,14 @@ urlpatterns = [
 
 
 
-    path('p_activar_producto/<int:id_producto>/', p_activar_producto, name="p_activar_producto"),
-    path('p_desactivar_producto/<int:id_producto>/', p_desactivar_producto, name="p_desactivar_producto"),
-    path('p_eliminar_producto/<int:id_producto>/', p_eliminar_producto, name="p_eliminar_producto"),
+    path('p_activar_producto/<int:id_Hora>/', p_activar_producto, name="p_activar_producto"),
+    path('p_desactivar_producto/<int:id_Hora>/', p_desactivar_producto, name="p_desactivar_producto"),
+    path('p_eliminar_producto/<id_Hora>/', p_eliminar_producto, name="p_eliminar_producto"),
     path('sp_finalizar_solicitud/<int:id_solicitud>/', sp_finalizar_solicitud, name="sp_finalizar_solicitud"),
     path('finalizar_solicitud/<int:id_solicitud>/', finalizar_solicitud, name="finalizar_solicitud"),
     path('activar_producto/<int:id_producto>/',activar_producto,name="activar_producto"),
     path('desactivar_producto/<int:id_producto>/',desactivar_producto,name="desactivar_producto"),
-    path('eliminar_producto/<int:id_producto>/',eliminar_producto,name="eliminar_producto"),
+    path('eliminar_producto/<id_Hora>/',eliminar_producto,name="eliminar_producto"),
 
     #Seguimiento pedido
     path('seguimiento/',verPedido,name="verPedido"),
